@@ -46,6 +46,8 @@ const Container = () => {
             setUsers([...(users || []), newUser]);
             setLocal(!localStore);
             setSkills([]);
+            setAge("");
+            setName("");
           }}
         >
           <div>Cadastrar usuário</div>

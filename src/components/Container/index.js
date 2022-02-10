@@ -72,6 +72,10 @@ Side.Left = styled(Side)`
     width: 40%;
     text-align: center;
   }
+  button:disabled,
+  button[disabled] {
+    background-color: rgba(255, 242, 231, 0.1);
+  }
   > button {
     width: 50%;
     height: 15%;
@@ -81,8 +85,8 @@ Side.Left = styled(Side)`
 
     background-color: #fff2e7;
     color: #2f2325;
-    :hover {
-      background-color: rgba(255, 242, 231, 0.5);
+    :hover:not(:disabled) {
+      background-color: rgba(255, 242, 231, 0.6);
     }
     transition: background-color 0.1s;
     font-family: "Concert One", sans-serif;
