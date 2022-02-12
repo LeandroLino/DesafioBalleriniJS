@@ -35,11 +35,22 @@ const Container = () => {
       <Side.Left>
         <div>Digite os dados do usuário</div>
         <div>
-          <Input name="Nome" type="text" returnValue={setName}></Input>
-          <Input name="Idade" type="number" returnValue={setAge}></Input>
+          <Input
+            name="Nome"
+            type="text"
+            returnValue={setName}
+            value={name}
+          ></Input>
+          <Input
+            name="Idade"
+            type="number"
+            returnValue={setAge}
+            value={age}
+          ></Input>
           <Input name="Skills" onKeyUp={addTags}></Input>
         </div>
         <button
+          onMouseOver={() => console.log(!skillsArr.length > 0, !name, !age)}
           disabled={!skillsArr.length > 0 || !name || !age}
           onClick={() => {
             const newUser = { skillsArr: skillsArr, name: name, age: age };
@@ -76,12 +87,7 @@ const Container = () => {
                     Skills<div>: </div>
                   </div>
                   <div>
-                    {element?.skillsArr?.map((elem, index) => (
-                      <span key={index}>
-                        {elem}
-                        {index < element.skillsArr.length - 1 ? ", " : ""}
-                      </span>
-                    ))}
+                    <span>{element.skillsArr.join(", ")}</span>
                   </div>
                 </Side.Right.Label>
               </div>
